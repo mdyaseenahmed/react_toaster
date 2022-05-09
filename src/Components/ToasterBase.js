@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ToasterBase = ({
     title= "My Title",
-    // description= "Toaster Description",
+    buttonName= "My Button",
     position,
     autoClose,
     hideProgressBar=false,
@@ -33,19 +33,19 @@ const ToasterBase = ({
                 toast.info(title , {position: position, autoClose: autoClose, hideProgressBar: hideProgressBar, newestOnTop: newestOnTop, closeOnClick: closeOnClick, rtl: rtl, pauseOnFocusLoss: pauseOnFocusLoss, draggable: draggable, pauseOnHover: pauseOnHover });
                 break;
 
-            case "default":
-                toast.default(title , {position: position, autoClose: autoClose, hideProgressBar: hideProgressBar, newestOnTop: newestOnTop, closeOnClick: closeOnClick, rtl: rtl, pauseOnFocusLoss: pauseOnFocusLoss, draggable: draggable, pauseOnHover: pauseOnHover });
+            case "error":
+                toast.error(title , {position: position, autoClose: autoClose, hideProgressBar: hideProgressBar, newestOnTop: newestOnTop, closeOnClick: closeOnClick, rtl: rtl, pauseOnFocusLoss: pauseOnFocusLoss, draggable: draggable, pauseOnHover: pauseOnHover });
                 break;
 
             default:
-                toast.success(title , {position: position, autoClose: autoClose, hideProgressBar: hideProgressBar, newestOnTop: newestOnTop, closeOnClick: closeOnClick, rtl: rtl, pauseOnFocusLoss: pauseOnFocusLoss, draggable: draggable, pauseOnHover: pauseOnHover });
+                toast(title , {position: position, autoClose: autoClose, hideProgressBar: hideProgressBar, newestOnTop: newestOnTop, closeOnClick: closeOnClick, rtl: rtl, pauseOnFocusLoss: pauseOnFocusLoss, draggable: draggable, pauseOnHover: pauseOnHover });
                 break; 
         }
     }
 
     return (
         <>
-            <button onClick={() => notify()}>Notify!</button>
+            <button onClick={() => notify()}>{buttonName}</button>
             <ToastContainer />
         </>
   )
